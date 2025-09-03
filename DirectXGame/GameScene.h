@@ -1,6 +1,7 @@
 #pragma once
 
 #include "KamataEngine.h"
+#include "Player.h"
 
 using namespace KamataEngine;
 
@@ -21,6 +22,12 @@ private:
 Camera camera_;
 
 WorldTransform worldTransform_;
+
+Input* input_ = nullptr;
+
+Model* modelPlayer_ = nullptr;
+
+Player* player_ = nullptr;
 
 
 };
