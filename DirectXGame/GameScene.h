@@ -2,6 +2,7 @@
 
 #include "KamataEngine.h"
 #include "Player.h"
+#include "CameraController.h"
 
 using namespace KamataEngine;
 
@@ -28,6 +29,8 @@ Input* input_ = nullptr;
 Model* modelPlayer_ = nullptr;
 
 Player* player_ = nullptr;
+
+CameraController* cameraController_;
 
 
 };

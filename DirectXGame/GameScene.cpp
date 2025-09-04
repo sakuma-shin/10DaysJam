@@ -14,8 +14,13 @@ void GameScene::Initialize() {
 	camera_.Initialize();
 
 	player_ = new Player();
-
 	player_->Initialize(modelPlayer_);
+
+	cameraController_ = new CameraController();
+	cameraController_->SetCamera(&camera_);
+	cameraController_->SetTarget(player_);
+	cameraController_->Initialize();
+	cameraController_->Reset();
 
 	input_ = Input::GetInstance();
 
@@ -26,6 +31,9 @@ void GameScene::Initialize() {
 void GameScene::Update() {
 
 	player_->Update(); 
+
+	cameraController_->Update();
+
 
 }
 
