@@ -1,4 +1,5 @@
 #include <KamataEngine.h>
+#include "GameScene.h"
 
 using namespace KamataEngine;
 
@@ -51,12 +52,18 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	primitiveDrawer->Initialize();
 #pragma endregion
 
+	GameScene* gameScene = new GameScene();
+	gameScene->Initialize();
+
+
 	// メインループ
 	while (true) {
 		// メッセージ処理
 		if (win->ProcessMessage()) {
 			break;
 		}
+
+		gameScene->Update();
 
 		// ImGui受付開始
 		imguiManager->Begin();
@@ -75,9 +82,16 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		primitiveDrawer->Reset();
 		// ImGui描画
 		imguiManager->Draw();
+
+		gameScene->Draw();
+
 		// 描画終了
 		dxCommon->PostDraw();
 	}
+
+	delete gameScene;
+
+	gameScene = nullptr;
 
 	// 3Dモデル解放
 	Model::StaticFinalize();
