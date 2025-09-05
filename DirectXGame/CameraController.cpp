@@ -13,7 +13,6 @@ void CameraController::Update() {
 	targetPosition_.z = targetWorldTransform.translation_.z + targetOffset_.z;
 
 	camera_->translation_.x = Lerp(camera_->translation_.x, targetPosition_.x, kInterpolationRate_);
-	camera_->translation_.y = Lerp(camera_->translation_.y, targetPosition_.y, kInterpolationRate_);
 	camera_->translation_.z = Lerp(camera_->translation_.z, targetPosition_.z, kInterpolationRate_);
 
 	camera_->UpdateMatrix();
