@@ -1,5 +1,6 @@
 #pragma once
 
+#include "CameraController.h"
 #include "KamataEngine.h"
 #include "Player.h"
 
@@ -8,26 +9,24 @@ using namespace KamataEngine;
 class GameScene {
 
 public:
+	~GameScene();
 
-~GameScene();
+	void Initialize();
 
-void Initialize();
+	void Update();
 
-void Update();
-
-void Draw();
+	void Draw();
 
 private:
+	Camera camera_;
 
-Camera camera_;
+	WorldTransform worldTransform_;
 
-WorldTransform worldTransform_;
+	Input* input_ = nullptr;
 
-Input* input_ = nullptr;
+	Model* modelPlayer_ = nullptr;
 
-Model* modelPlayer_ = nullptr;
+	Player* player_ = nullptr;
 
-Player* player_ = nullptr;
-
-
+	CameraController* cameraController_;
 };

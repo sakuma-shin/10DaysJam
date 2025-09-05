@@ -14,11 +14,12 @@ public:
 
 	void Draw(Camera& camera);
 
+	const WorldTransform& GetWorldTransform() const { return worldTransform_; }
+
 private:
 	WorldTransform worldTransform_;
 
 	Model* model_ = nullptr;
 
 	Input* input_ = nullptr;
-
 };

@@ -4,7 +4,6 @@ GameScene::~GameScene() {
 
 	delete modelPlayer_;
 	delete player_;
-
 }
 
 void GameScene::Initialize() {
@@ -14,19 +13,24 @@ void GameScene::Initialize() {
 	camera_.Initialize();
 
 	player_ = new Player();
-
 	player_->Initialize(modelPlayer_);
+
+	cameraController_ = new CameraController();
+	cameraController_->SetCamera(&camera_);
+	cameraController_->SetTarget(player_);
+	cameraController_->Initialize();
+	cameraController_->Reset();
 
 	input_ = Input::GetInstance();
 
 	worldTransform_.Initialize();
-
 }
 
 void GameScene::Update() {
 
-	player_->Update(); 
+	player_->Update();
 
+	cameraController_->Update();
 }
 
 void GameScene::Draw() {
@@ -48,5 +52,4 @@ void GameScene::Draw() {
 	Sprite::PreDraw(dxCommon->GetCommandList());
 
 	Sprite::PostDraw();
-
 }
