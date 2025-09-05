@@ -27,6 +27,11 @@ void GameScene::Update() {
 
 	player_->Update(); 
 
+	if (input_->TriggerKey(DIK_RETURN)) {
+
+		sceneNo = RESULT;
+	}
+
 }
 
 void GameScene::Draw() {

@@ -2,20 +2,21 @@
 
 #include "KamataEngine.h"
 #include "Player.h"
+#include "IScene.h"
 
 using namespace KamataEngine;
 
-class GameScene {
+class GameScene : public IScene {
 
 public:
 
 ~GameScene();
 
-void Initialize();
+void Initialize() override;
 
-void Update();
+void Update() override;
 
-void Draw();
+void Draw() override;
 
 private:
 
