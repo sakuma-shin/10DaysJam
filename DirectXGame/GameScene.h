@@ -3,19 +3,21 @@
 #include "CameraController.h"
 #include "KamataEngine.h"
 #include "Player.h"
+#include "IScene.h"
 
 using namespace KamataEngine;
 
-class GameScene {
+class GameScene : public IScene {
 
 public:
 	~GameScene();
 
-	void Initialize();
 
-	void Update();
+void Initialize() override;
 
-	void Draw();
+void Update() override;
+
+void Draw() override;
 
 private:
 	Camera camera_;

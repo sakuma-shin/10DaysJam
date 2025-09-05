@@ -107,10 +107,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Affin.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="IScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="ResultScene.cpp" />
+    <ClCompile Include="TitleScene.cpp" />
     <ClCompile Include="WorldTransformEX.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -190,9 +194,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Affin.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="CameraController.h" />
     <ClInclude Include="GameScene.h" />
+    <ClInclude Include="IScene.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="ResultScene.h" />
+    <ClInclude Include="TitleScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
