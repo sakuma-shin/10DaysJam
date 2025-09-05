@@ -26,7 +26,7 @@ public: // メンバ関数
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	void Initialize(WinApp* win, int32_t backBufferWidth = WinApp::kWindowWidth, int32_t backBufferHeight = WinApp::kWindowHeight, bool enableDebugLayer = true);
+	void Initialize(int32_t backBufferWidth = WinApp::kWindowWidth, int32_t backBufferHeight = WinApp::kWindowHeight, bool enableDebugLayer = true);
 
 	/// <summary>
 	/// 描画前処理
@@ -55,10 +55,16 @@ public: // メンバ関数
 	ID3D12Device* GetDevice() const { return device_.Get(); }
 
 	/// <summary>
+	/// 転送用コマンドリストの取得
+	/// </summary>
+	/// <returns>転送用コマンドリスト</returns>
+	ID3D12GraphicsCommandList* GetCommandListForTransfer() const { return commandListForTransfer_.Get(); }
+
+	/// <summary>
 	/// 描画コマンドリストの取得
 	/// </summary>
 	/// <returns>描画コマンドリスト</returns>
-	ID3D12GraphicsCommandList* GetCommandList() const { return commandList_.Get(); }
+	ID3D12GraphicsCommandList* GetCommandList() const { return commandListForRender_.Get(); }
 
 	/// <summary>
 	/// バックバッファの幅取得
@@ -77,6 +83,12 @@ public: // メンバ関数
 
 	void SetRenderTargets(bool sRGB);
 
+	/// <summary>
+	/// 転送用リソースポインタの追加
+	/// </summary>
+	/// <returns>追加された転送用リソースポインタ</returns>
+	Microsoft::WRL::ComPtr<ID3D12Resource>& AddResourcePointerForTransfer();
+
 private: // メンバ変数
 	// ウィンドウズアプリケーション管理
 	WinApp* winApp_;
@@ -84,8 +96,10 @@ private: // メンバ変数
 	// Direct3D関連
 	Microsoft::WRL::ComPtr<IDXGIFactory7> dxgiFactory_;
 	Microsoft::WRL::ComPtr<ID3D12Device> device_;
-	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> commandList_;
-	Microsoft::WRL::ComPtr<ID3D12CommandAllocator> commandAllocator_;
+	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> commandListForTransfer_;
+	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> commandListForRender_;
+	Microsoft::WRL::ComPtr<ID3D12CommandAllocator> commandAllocatorForTransfer_;
+	Microsoft::WRL::ComPtr<ID3D12CommandAllocator> commandAllocatorForRender_;
 	Microsoft::WRL::ComPtr<ID3D12CommandQueue> commandQueue_;
 	Microsoft::WRL::ComPtr<IDXGISwapChain4> swapChain_;
 	std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> backBuffers_;
@@ -93,6 +107,7 @@ private: // メンバ変数
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> rtvHeap_;
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> dsvHeap_;
 	Microsoft::WRL::ComPtr<ID3D12Fence> fence_;
+	std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> resourcesForTransfer;
 	UINT64 fenceVal_ = 0;
 	int32_t backBufferWidth_ = 0;
 	int32_t backBufferHeight_ = 0;
