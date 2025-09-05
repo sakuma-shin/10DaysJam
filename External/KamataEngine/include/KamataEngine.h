@@ -35,3 +35,22 @@
 #include <math\Vector2.h>
 #include <math\Vector3.h>
 #include <math\Vector4.h>
+
+namespace KamataEngine {
+/// <summary>
+/// エンジンの初期化
+/// </summary>
+/// <param name="title">ウィンドウタイトル</param>
+void Initialize(const std::wstring& title = L"LE2X_99_カマタ_タロウ");
+
+/// <summary>
+/// エンジンの終了処理
+/// </summary>
+void Finalize();
+
+/// <summary>
+/// エンジンの更新
+/// </summary>
+/// <returns>終了フラグ</returns>
+bool Update();
+} // namespace KamataEngine

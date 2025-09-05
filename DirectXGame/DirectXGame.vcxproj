@@ -106,6 +106,12 @@
     </FxCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="IScene.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ResultScene.cpp" />
+    <ClCompile Include="TitleScene.cpp" />
     <ClCompile Include="Affin.cpp" />
     <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="GameScene.cpp" />
@@ -189,6 +195,11 @@
     <None Include="Resources\shaders\Sprite.hlsli" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GameScene.h" />
+    <ClInclude Include="IScene.h" />
+    <ClInclude Include="ResultScene.h" />
+    <ClInclude Include="TitleScene.h" />
     <ClInclude Include="Affin.h" />
     <ClInclude Include="CameraController.h" />
     <ClInclude Include="GameScene.h" />
