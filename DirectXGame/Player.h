@@ -22,4 +22,12 @@ private:
 	Model* model_ = nullptr;
 
 	Input* input_ = nullptr;
+
+	float velocityY_ = 0.0f;
+	bool isOnGround_ = true;
+
+	const float gravity_ = -0.10f;
+	const float jumpPower_ = 2.0f;
+	const float groundHeight_ = 0.0f;
+
 };
