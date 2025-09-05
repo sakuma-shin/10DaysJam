@@ -1,18 +1,33 @@
 #pragma once
+
 #include "KamataEngine.h"
-#include "IScene.h"
+#include "Player.h"
 
-class GameScene:public IScene{
+using namespace KamataEngine;
+
+class GameScene {
+
 public:
-	~GameScene();
 
-	void Initialize() override;
-	void Update() override;
-	void Draw() override;
+~GameScene();
+
+void Initialize();
+
+void Update();
+
+void Draw();
 
 private:
-	KamataEngine::Camera camera_;
-	KamataEngine::WorldTransform worldTransform_;
 
-	KamataEngine::Input* input_ = nullptr;
+Camera camera_;
+
+WorldTransform worldTransform_;
+
+Input* input_ = nullptr;
+
+Model* modelPlayer_ = nullptr;
+
+Player* player_ = nullptr;
+
+
 };

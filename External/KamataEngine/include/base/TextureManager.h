@@ -52,8 +52,8 @@ public:
 	/// <summary>
 	/// システム初期化
 	/// </summary>
-	/// <param name="directoryPath">テクスチャを読み込むディレクトリ</param>
-	void Initialize(std::string directoryPath = "Resources/");
+	/// <param name="device">デバイス</param>
+	void Initialize(ID3D12Device* device, std::string directoryPath = "Resources/");
 
 	/// <summary>
 	/// 全テクスチャリセット
@@ -115,10 +115,6 @@ private:
 	// テクスチャコンテナ
 	std::array<Texture, kNumDescriptors> textures_;
 	Bitset<kNumDescriptors> useTable_;
-	// アップロードリソース
-	std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> intermediateResources;
-	// 転送用コマンドリスト
-	ID3D12GraphicsCommandList* commandListforTransfer_;
 
 	/// <summary>
 	/// 読み込み

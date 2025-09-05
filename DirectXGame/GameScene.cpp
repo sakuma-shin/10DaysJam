@@ -1,46 +1,52 @@
 #include "GameScene.h"
-using namespace KamataEngine;
 
 GameScene::~GameScene() {
+
+	delete modelPlayer_;
+	delete player_;
+
 }
 
 void GameScene::Initialize() {
 
-	worldTransform_.Initialize();
+	modelPlayer_ = Model::CreateFromOBJ("Player");
 
 	camera_.Initialize();
 
+	player_ = new Player();
+
+	player_->Initialize(modelPlayer_);
+
 	input_ = Input::GetInstance();
 
-	
+	worldTransform_.Initialize();
 
 }
 
 void GameScene::Update() {
 
-	if (input_->TriggerKey(DIK_RETURN)) {
+	player_->Update(); 
 
-		sceneNo = RESULT;
-	}
-	
 }
 
 void GameScene::Draw() {
+
 	DirectXCommon* dxCommon = DirectXCommon::GetInstance();
 
-	//後景スプライト描画前処理
 	Sprite::PreDraw(dxCommon->GetCommandList());
 
-
-	//後景スプライト描画後処理
 	Sprite::PostDraw();
 
-	//深度クリア
 	dxCommon->ClearDepthBuffer();
 
-	//前景スプライト描画前処理
+	Model::PreDraw(dxCommon->GetCommandList());
+
+	player_->Draw(camera_);
+
+	Model::PostDraw();
+
 	Sprite::PreDraw(dxCommon->GetCommandList());
 
-	// 前景スプライト描画後処理
 	Sprite::PostDraw();
+
 }

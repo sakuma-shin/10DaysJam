@@ -104,10 +104,10 @@ public:
 	void Reset();
 
 	/// <summary>
-	/// カメラのセット
+	/// ビュープロジェクションのセット
 	/// </summary>
-	/// <param name="camera"></param>
-	void SetCamera(const Camera* camera) { camera_ = camera; }
+	/// <param name="viewProjection"></param>
+	void SetViewProjection(const Camera* viewProjection) { camera_ = viewProjection; }
 
 private:
 	PrimitiveDrawer() = default;
@@ -134,7 +134,7 @@ private:
 	std::unique_ptr<Mesh> line_;
 	// 線分の使用インデックス
 	uint32_t indexLine_ = 0;
-	// 参照するカメラ
+	// 参照するビュープロジェクション
 	const Camera* camera_ = nullptr;
 	// ブレンドモード
 	BlendMode blendMode_ = BlendMode::kBlendModeNormal;

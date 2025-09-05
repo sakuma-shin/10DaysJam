@@ -17,7 +17,7 @@ public:
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	void Initialize();
+	void Initialize(WinApp* winApp, DirectXCommon* dxCommon);
 
 	/// <summary>
 	/// 終了

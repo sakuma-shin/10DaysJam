@@ -21,7 +21,6 @@ void Player::Update() {
 
 	// キャラクターの移動速度
 	const float kCharacterSpeed = 0.2f;
-	const float kAutoSpeedY = 0.1f; 
 
 	// 押した方向で移動ベクトルを変更(左右)
 	if (input_->PushKey(DIK_A)) {
@@ -33,8 +32,6 @@ void Player::Update() {
 
 		move.x += kCharacterSpeed;
 	}
-
-	  move.y += kAutoSpeedY;
 
 	// 座標移動
 	worldTransform_.translation_.x += move.x;
