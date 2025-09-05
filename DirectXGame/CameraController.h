@@ -32,5 +32,4 @@ Vector3 targetPosition_;
 
 static inline const float kInterpolationRate_ = 0.05f;
 
-
 };
