@@ -4,6 +4,7 @@
 #include "KamataEngine.h"
 #include "Player.h"
 #include "IScene.h"
+#include"Skydome.h"
 
 using namespace KamataEngine;
 
@@ -31,4 +32,9 @@ private:
 	Player* player_ = nullptr;
 
 	CameraController* cameraController_;
+
+	// 天球
+	Skydome* skydome_ = nullptr;
+	uint32_t skydomeTextureHandle_ = 0u;
+	KamataEngine::Model* skydomeModel_ = nullptr;
 };
