@@ -4,6 +4,8 @@ GameScene::~GameScene() {
 
 	delete modelPlayer_;
 	delete player_;
+	delete skydome_;
+	delete skydomeModel_;
 }
 
 void GameScene::Initialize() {
@@ -24,6 +26,14 @@ void GameScene::Initialize() {
 	input_ = Input::GetInstance();
 
 	worldTransform_.Initialize();
+	skydomeTextureHandle_ = TextureManager::Load("sky_sphere.png");
+
+	skydomeModel_ = Model::CreateFromOBJ("skyDome", true);
+
+	// 天球
+	skydome_ = new Skydome();
+	// 初期化
+	skydome_->Initialize(skydomeModel_, skydomeTextureHandle_);
 }
 
 void GameScene::Update() {
@@ -50,7 +60,9 @@ void GameScene::Draw() {
 
 	Model::PreDraw(dxCommon->GetCommandList());
 
+	skydome_->Draw(camera_);
 	player_->Draw(camera_);
+	
 
 	Model::PostDraw();
 
