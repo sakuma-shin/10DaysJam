@@ -64,4 +64,5 @@ void OverScene::Draw() {
 	Sprite::PostDraw();
 }
 
-OverScene::~OverScene() {}
+OverScene::~OverScene() { delete overSprite_;
+}
