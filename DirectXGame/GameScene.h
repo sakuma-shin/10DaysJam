@@ -1,49 +1,54 @@
 #pragma once
 
+#include "CameraController.h"
 #include "KamataEngine.h"
 #include "Player.h"
 #include "CameraController.h"
-#include "Mapchip.h"
+#include "Mapchip.
+#include "IScene.h"
+#include"Skydome.h"
 
 using namespace KamataEngine;
 
-class GameScene {
+class GameScene : public IScene {
 
 public:
+	~GameScene();
 
-~GameScene();
 
-void Initialize();
+void Initialize() override;
 
-void Update();
+void Update() override;
 
-void Draw();
+void Draw() override;
 
 // ブロック生成
 void GenerateBlocks();
 void CollisionsCheck();
 
 private:
+	Camera camera_;
 
-Camera camera_;
-
-WorldTransform worldTransform_;
-
-Input* input_ = nullptr;
-
+	WorldTransform worldTransform_;
 // モデル
 Model* modelPlayer_ = nullptr;
 Model* modelHole_ = nullptr;
-Model* modelRoad_ = nullptr;
+Model* modelRoad_ = nullptr
+	Input* input_ = nullptr
 
-Player* player_ = nullptr;
+	Model* modelPlayer_ = nullptr;
 
-CameraController* cameraController_;
+	Player* player_ = nullptr;
 
 MapChipField* mapChipField_;
 
 // ブロック配列
 std::vector<std::vector<KamataEngine::WorldTransform*>> worldTransformBlocks_;
 std::vector<std::vector<KamataEngine::WorldTransform*>> worldTransformHoles_;
+	CameraController* cameraController_;
 
+	// 天球
+	Skydome* skydome_ = nullptr;
+	uint32_t skydomeTextureHandle_ = 0u;
+	KamataEngine::Model* skydomeModel_ = nullptr;
 };

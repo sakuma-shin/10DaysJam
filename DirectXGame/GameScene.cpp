@@ -25,13 +25,15 @@ GameScene::~GameScene() {
 
 	delete modelHole_;
 	delete modelRoad_;
+	delete skydome_;
+	delete skydomeModel_;
 }
 
-void GameScene::Initialize() {
-
+void GameScene::Initialize()
 	modelPlayer_ = Model::CreateFromOBJ("Player");
 	modelRoad_ = Model::CreateFromOBJ("cube"); // 後で変更
-	//modelHole_ = Model::CreateFromOBJ("cube"); // 後で変更
+	//modelHole_ = Model::CreateFromOBJ("cube"); // 後
+	modelPlayer_ = Model::CreateFromOBJ("car
 
 	camera_.Initialize();
 
@@ -48,19 +50,27 @@ void GameScene::Initialize() {
 	input_ = Input::GetInstance();
 
 	worldTransform_.Initialize();
+	skydomeTextureHandle_ = TextureManager::Load("sky_sphere.png");
 
+	skydomeModel_ = Model::CreateFromOBJ("skyDome", true)
 	mapChipField_ = new MapChipField;
 	mapChipField_->LoadMapChipCsv("Resources/proto3.csv");
 
-	GenerateBlocks();
+	GenerateBlocks(
+	// 天球
+	skydome_ = new Skydome();
+	// 初期化
+	skydome_->Initialize(skydomeModel_, skydomeTextureHandle_
 }
 
 void GameScene::Update() {
 
 	player_->Update();
 
-	cameraController_->Update();
+	if (input_->TriggerKey(DIK_RETURN)) {
 
+		sceneNo = RESULT;
+	}
 	for (std::vector<WorldTransform*> worldTransformBlockHeight : worldTransformBlocks_) {
 		for (WorldTransform* worldTransformBlockWidth : worldTransformBlockHeight) {
 			if (!worldTransformBlockWidth)
@@ -85,7 +95,13 @@ void GameScene::Update() {
 			// 定数バッファに転送
 			worldTransformBlockWidth->TransferMatrix();
 		}
+	
+	if (input_->TriggerKey(DIK_1)) {
+
+		sceneNo = OVER;
 	}
+
+	cameraController_->Update()
 }
 
 void GameScene::Draw() {
@@ -100,7 +116,9 @@ void GameScene::Draw() {
 
 	Model::PreDraw(dxCommon->GetCommandList());
 
+	skydome_->Draw(camera_);
 	player_->Draw(camera_);
+	
 
 	for (std::vector<WorldTransform*> worldTransformBlockHeight : worldTransformBlocks_) {
 		for (WorldTransform* worldTransformBlockWidth : worldTransformBlockHeight) {
@@ -162,4 +180,5 @@ void GameScene::GenerateBlocks() {
 
 void GameScene::CollisionsCheck() {
 
+}
 }

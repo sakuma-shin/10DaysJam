@@ -60,4 +60,11 @@ private:
 	static inline const float kHeight = 1.0f;
 
 	static inline const float kBlank = 18.0f;
+	float velocityY_ = 0.0f;
+	bool isOnGround_ = true;
+
+	const float gravity_ = -0.10f;
+	const float jumpPower_ = 2.0f;
+	const float groundHeight_ = 0.0f;
+
 };
