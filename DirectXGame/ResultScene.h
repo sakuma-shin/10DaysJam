@@ -1,6 +1,7 @@
 #pragma once
 #include "IScene.h"
 #include "KamataEngine.h"
+#include "ResultSkydome.h"
 
 class ResultScene : public IScene {
 public:
@@ -17,4 +18,8 @@ private:
 	KamataEngine::WorldTransform worldTransform_;
 
 	KamataEngine::Input* input_ = nullptr;
+
+	ResultSkydome* resultSkydome_ = nullptr;
+	Model* modelSkydome_ = nullptr;
+
 };
