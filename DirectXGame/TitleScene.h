@@ -22,4 +22,7 @@ private:
 	TitleSkydome* titleSkydome_ = nullptr;
 	Model* modelSkydome_ = nullptr;
 
+	uint32_t textureHandle_ = 0;
+	Sprite* sprite_ = nullptr;
+
 };

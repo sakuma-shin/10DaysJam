@@ -4,6 +4,8 @@ using namespace KamataEngine;
 void TitleScene::Initialize() {
 
 	modelSkydome_ = Model::CreateFromOBJ("titleSkydome");
+	textureHandle_ = TextureManager::Load("sprite/titleSprite.png");
+	sprite_ = Sprite::Create(textureHandle_, {0, 0});
 
 	titleSkydome_ = new TitleSkydome();
 	titleSkydome_->Initialize(modelSkydome_, &camera_);
@@ -40,6 +42,8 @@ void TitleScene::Draw() {
 	Model::PostDraw();
 
 	Sprite::PreDraw(dxCommon->GetCommandList());
+
+	sprite_->Draw();
 
 	Sprite::PostDraw();
 }
