@@ -6,6 +6,7 @@
 #include "IScene.h"
 #include"Skydome.h"
 #include"Ground.h"
+#include"Goal.h"
 
 using namespace KamataEngine;
 
@@ -40,8 +41,13 @@ private:
 	uint32_t skydomeTextureHandle_ = 0u;
 	KamataEngine::Model* skydomeModel_ = nullptr;
 
-	// 天球
+	// 地面
 	Ground* ground_ = nullptr;
 	uint32_t groundTextureHandle_ = 0u;
 	KamataEngine::Model* groundModel_ = nullptr;
+
+	//ゴール
+	Goal* goal_ = nullptr;
+	uint32_t goalTextureHandle_ = 0u;
+	KamataEngine::Model* goalModel_ = nullptr;
 };
