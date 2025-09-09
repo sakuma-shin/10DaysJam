@@ -10,7 +10,7 @@ GameScene::~GameScene() {
 
 void GameScene::Initialize() {
 
-	modelPlayer_ = Model::CreateFromOBJ("Player");
+	modelPlayer_ = Model::CreateFromOBJ("car");
 
 	camera_.Initialize();
 
