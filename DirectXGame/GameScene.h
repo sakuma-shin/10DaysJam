@@ -21,6 +21,7 @@ void Draw();
 
 // ブロック生成
 void GenerateBlocks();
+void CollisionsCheck();
 
 private:
 

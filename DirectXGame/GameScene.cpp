@@ -31,12 +31,13 @@ void GameScene::Initialize() {
 
 	modelPlayer_ = Model::CreateFromOBJ("Player");
 	modelRoad_ = Model::CreateFromOBJ("cube"); // 後で変更
-	modelHole_ = Model::CreateFromOBJ("cube"); // 後で変更
+	//modelHole_ = Model::CreateFromOBJ("cube"); // 後で変更
 
 	camera_.Initialize();
 
 	player_ = new Player();
 	player_->Initialize(modelPlayer_);
+	player_->SetMapChipField(mapChipField_);
 
 	cameraController_ = new CameraController();
 	cameraController_->SetCamera(&camera_);
@@ -49,14 +50,14 @@ void GameScene::Initialize() {
 	worldTransform_.Initialize();
 
 	mapChipField_ = new MapChipField;
-	mapChipField_->LoadMapChipCsv("Resources/proto2.csv");
+	mapChipField_->LoadMapChipCsv("Resources/proto3.csv");
 
 	GenerateBlocks();
 }
 
 void GameScene::Update() {
 
-	player_->Update(); 
+	player_->Update();
 
 	cameraController_->Update();
 
@@ -115,7 +116,7 @@ void GameScene::Draw() {
 			if (!worldTransformBlockWidth)
 				continue;
 
-			modelHole_->Draw(*worldTransformBlockWidth, camera_);
+			//modelHole_->Draw(*worldTransformBlockWidth, camera_);
 		}
 	}
 
@@ -157,4 +158,8 @@ void GameScene::GenerateBlocks() {
 			}
 		}
 	}
+}
+
+void GameScene::CollisionsCheck() {
+
 }

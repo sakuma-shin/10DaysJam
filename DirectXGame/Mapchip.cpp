@@ -1,5 +1,8 @@
 #include <map>
+#include <string>
 #include <fstream>
+#include <sstream>
+#include <cassert>
 #include "Mapchip.h"
 
 namespace {
@@ -48,10 +51,11 @@ void MapChipField::LoadMapChipCsv(const std::string& filePath) {
 
 MapChipType MapChipField::GetMapChipTypeByIndex(uint32_t xIndex, uint32_t yIndex) {
 
-	return mapChipData_.data[yIndex][xIndex]; }
+	return mapChipData_.data[yIndex][xIndex];
+}
 
 KamataEngine::Vector3 MapChipField::GetMapChipPositionByIndex(uint32_t xIndex, uint32_t yIndex) {
-	return KamataEngine::Vector3(kBlockWidth * xIndex - 14, kBlockHeight * (kNumBlockVirtical - 1 - yIndex), 16);
+	return KamataEngine::Vector3(kBlockWidth * xIndex - 14, kBlockHeight * (kNumBlockVirtical - 1 - yIndex), 2);
 }
 
 uint32_t MapChipField::GetNumBlockVirtical() const { return kNumBlockVirtical; }
