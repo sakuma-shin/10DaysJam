@@ -1,3 +1,4 @@
+#define KMINMAX
 #include "Player.h"
 
 Player::~Player() {}
@@ -49,6 +50,11 @@ void Player::Update() {
 		velocityY_ = 0.0f;
 		isOnGround_ = true;
 	}
+
+	const float kMoveLimitX = 21.5f;
+
+	worldTransform_.translation_.x = max(worldTransform_.translation_.x, -kMoveLimitX);
+	worldTransform_.translation_.x = min(worldTransform_.translation_.x, kMoveLimitX);
 
 	worldTransform_.TransferMatrix();
 	worldTransform_.UpdateMatrix();
