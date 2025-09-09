@@ -110,6 +110,7 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="Ground.cpp" />
     <ClCompile Include="IScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OverScene.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="CameraController.h" />
     <ClInclude Include="GameScene.h" />
+    <ClInclude Include="Ground.h" />
     <ClInclude Include="IScene.h" />
     <ClInclude Include="OverScene.h" />
     <ClInclude Include="Player.h" />

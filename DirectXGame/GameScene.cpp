@@ -30,10 +30,17 @@ void GameScene::Initialize() {
 
 	skydomeModel_ = Model::CreateFromOBJ("skyDome", true);
 
+	groundTextureHandle_ = TextureManager::Load("Ground.png");
+	groundModel_ = Model::CreateFromOBJ("Ground", true);
+
 	// 天球
 	skydome_ = new Skydome();
 	// 初期化
 	skydome_->Initialize(skydomeModel_, skydomeTextureHandle_);
+
+	ground_ = new Ground();
+	//初期化
+	ground_->Initialize(groundModel_, groundTextureHandle_);
 }
 
 void GameScene::Update() {
@@ -66,6 +73,7 @@ void GameScene::Draw() {
 	Model::PreDraw(dxCommon->GetCommandList());
 
 	skydome_->Draw(camera_);
+	ground_->Draw(camera_);
 	player_->Draw(camera_);
 	
 

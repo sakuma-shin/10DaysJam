@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "IScene.h"
 #include"Skydome.h"
+#include"Ground.h"
 
 using namespace KamataEngine;
 
@@ -29,6 +30,7 @@ private:
 
 	Model* modelPlayer_ = nullptr;
 
+
 	Player* player_ = nullptr;
 
 	CameraController* cameraController_;
@@ -37,4 +39,9 @@ private:
 	Skydome* skydome_ = nullptr;
 	uint32_t skydomeTextureHandle_ = 0u;
 	KamataEngine::Model* skydomeModel_ = nullptr;
+
+	// 天球
+	Ground* ground_ = nullptr;
+	uint32_t groundTextureHandle_ = 0u;
+	KamataEngine::Model* groundModel_ = nullptr;
 };
