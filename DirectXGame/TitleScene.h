@@ -25,4 +25,10 @@ private:
 	uint32_t textureHandle_ = 0;
 	Sprite* sprite_ = nullptr;
 
+	uint32_t startTextureHandle_ = 0;
+	Sprite* startSprite_ = nullptr;
+
+	float blinkTimer_ = 0.0f;
+	bool isStartVisible_ = true;
+
 };
