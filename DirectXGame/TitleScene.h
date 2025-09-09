@@ -1,6 +1,8 @@
 #pragma once
 #include "IScene.h"
 #include "KamataEngine.h"
+#include "TitleSkydome.h"
+
 class TitleScene : public IScene {
 public:
 	void Initialize() override;
@@ -16,4 +18,17 @@ private:
 	KamataEngine::WorldTransform worldTransform_;
 
 	KamataEngine::Input* input_;
+
+	TitleSkydome* titleSkydome_ = nullptr;
+	Model* modelSkydome_ = nullptr;
+
+	uint32_t textureHandle_ = 0;
+	Sprite* sprite_ = nullptr;
+
+	uint32_t startTextureHandle_ = 0;
+	Sprite* startSprite_ = nullptr;
+
+	float blinkTimer_ = 0.0f;
+	bool isStartVisible_ = true;
+
 };
