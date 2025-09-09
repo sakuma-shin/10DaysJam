@@ -110,6 +110,7 @@
     <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mapchip.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="WorldTransformEX.cpp" />
   </ItemGroup>
@@ -192,6 +193,7 @@
     <ClInclude Include="Affin.h" />
     <ClInclude Include="CameraController.h" />
     <ClInclude Include="GameScene.h" />
+    <ClInclude Include="Mapchip.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
