@@ -33,6 +33,9 @@ void GameScene::Initialize() {
 	groundTextureHandle_ = TextureManager::Load("Ground.png");
 	groundModel_ = Model::CreateFromOBJ("Ground", true);
 
+	goalModel_ = Model::CreateFromOBJ("goal", true);
+	goalTextureHandle_ = TextureManager::Load("goal.png");
+
 	// 天球
 	skydome_ = new Skydome();
 	// 初期化
@@ -41,14 +44,21 @@ void GameScene::Initialize() {
 	ground_ = new Ground();
 	//初期化
 	ground_->Initialize(groundModel_, groundTextureHandle_);
+
+	Vector3 goalPos = {0.0f, 0.0f, 150.0f};
+	goal_ = new Goal();
+	goal_->Initialize(goalModel_, goalTextureHandle_, goalPos);
 }
 
 void GameScene::Update() {
 
 	player_->Update();
+	goal_->Update();
 
-	if (input_->TriggerKey(DIK_RETURN)) {
+	Vector3 playerPos = player_->GetWorldTransform().translation_;
+	Vector3 goalPos = goal_->GetGoalPos();
 
+	if (playerPos.z >= goalPos.z) {
 		sceneNo = RESULT;
 	}
 
@@ -74,6 +84,7 @@ void GameScene::Draw() {
 
 	skydome_->Draw(camera_);
 	ground_->Draw(camera_);
+	goal_->Draw(camera_);
 	player_->Draw(camera_);
 	
 
