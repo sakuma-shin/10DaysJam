@@ -33,7 +33,7 @@ void GameScene::Initialize() {
 	groundTextureHandle_ = TextureManager::Load("Ground.png");
 	groundModel_ = Model::CreateFromOBJ("Ground", true);
 
-	goalModel_ = Model::CreateFromOBJ("Goal", true);
+	goalModel_ = Model::CreateFromOBJ("goal", true);
 	goalTextureHandle_ = TextureManager::Load("goal.png");
 
 	// 天球
@@ -55,8 +55,10 @@ void GameScene::Update() {
 	player_->Update();
 	goal_->Update();
 
-	if (input_->TriggerKey(DIK_RETURN)) {
+	Vector3 playerPos = player_->GetWorldTransform().translation_;
+	Vector3 goalPos = goal_->GetGoalPos();
 
+	if (playerPos.z >= goalPos.z) {
 		sceneNo = RESULT;
 	}
 

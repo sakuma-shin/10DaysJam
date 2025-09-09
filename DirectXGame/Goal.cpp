@@ -7,6 +7,7 @@ void Goal::Initialize(Model* model, uint32_t textureHandle,KamataEngine::Vector3
 	model_ = model;
 	textureHandle_ = textureHandle;
 	worldTransform_.translation_ = position;
+	worldTransform_.scale_.x = 4.0f;
 }
 
 void Goal::Update() { worldTransform_.UpdateMatrix(); }

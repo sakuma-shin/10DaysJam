@@ -17,6 +17,8 @@ public:
 	///</summary>
 	void Draw(KamataEngine::Camera& camera);
 
+	KamataEngine::Vector3 GetGoalPos() const { return worldTransform_.translation_; };
+
 private:
 	// ワールド変換データ
 	KamataEngine::WorldTransform worldTransform_;
