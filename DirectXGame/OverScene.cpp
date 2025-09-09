@@ -64,5 +64,9 @@ void OverScene::Draw() {
 	Sprite::PostDraw();
 }
 
-OverScene::~OverScene() { delete overSprite_;
+OverScene::~OverScene() {
+	delete overSprite_;
+	delete resultSkydome_;
+	delete clearSprite_;
+	delete enterSprite_;
 }
