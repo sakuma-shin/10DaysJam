@@ -29,10 +29,10 @@ void Player::Update() {
 	move.z += kAutoSpeedZ;
 
 	// --- ジャンプ処理 ---
-	if (isOnGround_ && input_->TriggerKey(DIK_SPACE)) {
+	/*if (isOnGround_ && input_->TriggerKey(DIK_SPACE)) {
 		velocityY_ = jumpPower_;
 		isOnGround_ = false;
-	}
+	}*/
 
 	// 重力を加算
 	velocityY_ += gravity_;
