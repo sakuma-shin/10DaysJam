@@ -112,6 +112,7 @@
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="IScene.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OverScene.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ResultScene.cpp" />
     <ClCompile Include="ResultSkydome.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="CameraController.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="IScene.h" />
+    <ClInclude Include="OverScene.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ResultScene.h" />
     <ClInclude Include="ResultSkydome.h" />

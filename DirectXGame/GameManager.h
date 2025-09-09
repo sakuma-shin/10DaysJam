@@ -5,13 +5,14 @@
 #include "KamataEngine.h"
 #include "ResultScene.h"
 #include "TitleScene.h"
+#include "OverScene.h"
 #include <memory>
 using namespace KamataEngine;
 
 class GameManager {
 private:
 	// シーンを保持するメンバ関数
-	std::unique_ptr<IScene> sceneArr_[3];
+	std::unique_ptr<IScene> sceneArr_[4];
 
 	int currentSceneNo_;
 	int prevSceneNo_;

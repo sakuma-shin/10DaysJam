@@ -1,6 +1,6 @@
 #pragma once
 
-enum Scene { TITLE, STAGE, RESULT };
+enum Scene { TITLE, STAGE, RESULT,OVER };
 
 class IScene {
 protected:

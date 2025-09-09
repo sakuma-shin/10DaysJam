@@ -14,6 +14,8 @@ GameManager::GameManager() {
 	sceneArr_[TITLE] = std::make_unique<TitleScene>();
 	sceneArr_[STAGE] = std::make_unique<GameScene>();
 	sceneArr_[RESULT] = std::make_unique<ResultScene>();
+	sceneArr_[OVER] = std::make_unique<OverScene>();
+
 
 	currentSceneNo_ = TITLE;
 

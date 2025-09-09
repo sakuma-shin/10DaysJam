@@ -45,6 +45,11 @@ void GameScene::Update() {
 		sceneNo = RESULT;
 	}
 
+	if (input_->TriggerKey(DIK_1)) {
+
+		sceneNo = OVER;
+	}
+
 	cameraController_->Update();
 }
 
