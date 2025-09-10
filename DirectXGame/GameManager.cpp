@@ -7,8 +7,10 @@ GameManager::GameManager() {
 	dxCommon = DirectXCommon::GetInstance();
 	input = Input::GetInstance();
 	audio = Audio::GetInstance();
+
 	axisIndicator = AxisIndicator::GetInstance();
 	primitiveDrawer = PrimitiveDrawer::GetInstance();
+	bgmSh_ = audio->LoadWave("BGM.mp3");
 
 	// 各シーンの配列
 	sceneArr_[TITLE] = std::make_unique<TitleScene>();
@@ -40,6 +42,10 @@ int GameManager::Run() {
 		// シーン変更チェック
 		if (prevSceneNo_ != currentSceneNo_) {
 			sceneArr_[currentSceneNo_]->Initialize();
+		}
+
+		if (!audio->IsPlaying(bgmSh_)) {
+			audio->PlayWave(bgmSh_, true,0.75f);
 		}
 
 		// ImGui受付開始
