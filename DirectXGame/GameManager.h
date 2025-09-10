@@ -25,6 +25,7 @@ private:
 	Audio* audio = nullptr;
 	AxisIndicator* axisIndicator = nullptr;
 	PrimitiveDrawer* primitiveDrawer = nullptr;
+	uint32_t bgmSh_ =0u;
 
 	// DirectXCommonクラスが管理している、ウインドウの幅と高さの取得
 	int32_t w = 0u;
