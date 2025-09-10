@@ -6,6 +6,8 @@ GameScene::~GameScene() {
 	delete player_;
 	delete skydome_;
 	delete skydomeModel_;
+	delete ground_;
+	delete groundModel_;
 }
 
 void GameScene::Initialize() {
@@ -62,7 +64,7 @@ void GameScene::Update() {
 		sceneNo = RESULT;
 	}
 
-	if (input_->TriggerKey(DIK_1)) {
+	if (player_->isDead() == true) {
 
 		sceneNo = OVER;
 	}

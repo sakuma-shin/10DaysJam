@@ -1,7 +1,7 @@
 #define KMINMAX
 #include "Player.h"
 
-Player::~Player() {}
+Player::~Player() { }
 
 void Player::Initialize(Model* model) {
 	assert(model);
@@ -12,6 +12,8 @@ void Player::Initialize(Model* model) {
 }
 
 void Player::Update() {
+	Collision();
+
 	Vector3 move = {0, 0, 0};
 
 	// キャラクターの移動速度
@@ -61,3 +63,17 @@ void Player::Update() {
 }
 
 void Player::Draw(Camera& camera) { model_->Draw(worldTransform_, camera); }
+
+void Player::Collision() {
+	if (worldTransform_.translation_.x < -10 && worldTransform_.translation_.z > 125.0 && worldTransform_.translation_.z < 135.0) {
+		isdead_ = true;
+	}
+
+	if (worldTransform_.translation_.x > 10 && worldTransform_.translation_.z > 85.0 && worldTransform_.translation_.z < 95.0) {
+		isdead_ = true;
+	}
+
+	if (worldTransform_.translation_.x > -5 && worldTransform_.translation_.x < 5 && worldTransform_.translation_.z > 45.0 && worldTransform_.translation_.z < 55.0) {
+		isdead_ = true;
+	}
+}
