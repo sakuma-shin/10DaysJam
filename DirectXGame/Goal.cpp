@@ -2,7 +2,7 @@
 using namespace KamataEngine;
 
 void Goal::Initialize(Model* model, uint32_t textureHandle,KamataEngine::Vector3 position) {
-	assert(model);
+	/*assert(model);*/
 	worldTransform_.Initialize();
 	model_ = model;
 	textureHandle_ = textureHandle;

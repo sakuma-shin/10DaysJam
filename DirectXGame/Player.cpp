@@ -4,7 +4,7 @@
 Player::~Player() { }
 
 void Player::Initialize(Model* model) {
-	assert(model);
+	/*assert(model);*/
 	model_ = model;
 	worldTransform_.Initialize();
 	input_ = Input::GetInstance();

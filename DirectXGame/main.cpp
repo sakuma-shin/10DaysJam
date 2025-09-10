@@ -5,7 +5,7 @@
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	// 汎用機能の初期化
 	WinApp* win = WinApp::GetInstance();
-	win->CreateGameWindow();
+	win->CreateGameWindow(L"3047_走破");
 
 	DirectXCommon* dxCommon = DirectXCommon::GetInstance();
 	dxCommon->Initialize(win);
