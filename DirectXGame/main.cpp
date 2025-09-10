@@ -1,11 +1,15 @@
 #include "GameManager.h"
 #include <KamataEngine.h>
+#include <Windows.h> 
 
 // Windowsアプリでのエントリーポイント(main関数)
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	// 汎用機能の初期化
 	WinApp* win = WinApp::GetInstance();
 	win->CreateGameWindow(L"3047_走破");
+
+	// ゲームバー（ウィンドウタイトル）を変更
+	SetWindowText(win->GetHwnd(), L"3047_走破"); 
 
 	DirectXCommon* dxCommon = DirectXCommon::GetInstance();
 	dxCommon->Initialize(win);
