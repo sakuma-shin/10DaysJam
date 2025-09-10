@@ -50,4 +50,9 @@ private:
 	Goal* goal_ = nullptr;
 	uint32_t goalTextureHandle_ = 0u;
 	KamataEngine::Model* goalModel_ = nullptr;
+
+	//壁
+	KamataEngine::WorldTransform wallPos_[3] = {};
+	uint32_t wallTextureHandle_ = 0u;
+	KamataEngine::Model* wallModel_ = nullptr;
 };

@@ -38,6 +38,8 @@ void GameScene::Initialize() {
 	goalModel_ = Model::CreateFromOBJ("goal", true);
 	goalTextureHandle_ = TextureManager::Load("goal.png");
 
+	wallModel_ = Model::CreateFromOBJ("wall", true);
+
 	// 天球
 	skydome_ = new Skydome();
 	// 初期化
@@ -50,6 +52,19 @@ void GameScene::Initialize() {
 	Vector3 goalPos = {0.0f, 0.0f, 150.0f};
 	goal_ = new Goal();
 	goal_->Initialize(goalModel_, goalTextureHandle_, goalPos);
+
+	for (int i = 0; i < 3; i++) {
+		wallPos_[i].Initialize();
+		wallPos_[i].scale_ = {4.0f, 2.0f, 4.0f};
+	}
+
+	wallPos_[0].translation_ = {-17.0f, 0.0f, 130.0f};
+	wallPos_[1].translation_ = {17.0f, 0.0f, 90.0f};
+	wallPos_[2].translation_ = {0.0f, 0.0f, 50.0f};
+
+	for (int i = 0; i < 3; i++) {
+		wallPos_[i].UpdateMatrix();
+	}
 }
 
 void GameScene::Update() {
@@ -87,6 +102,9 @@ void GameScene::Draw() {
 	skydome_->Draw(camera_);
 	ground_->Draw(camera_);
 	goal_->Draw(camera_);
+	for (int i = 0; i < 3; i++) {
+		wallModel_->Draw(wallPos_[i], camera_);
+	}
 	player_->Draw(camera_);
 	
 
